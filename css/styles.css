@@ -120,11 +120,27 @@ header {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #2e2f42;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .menu-link:hover,
 .menu-link:focus,
 .menu-link:active {
   color: #404bbf;
+}
+
+.menu-link-studio {
+  position: relative;
+}
+.menu-link-studio::after {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #404bbf;
+  position: absolute;
+  left: 0;
+  bottom: -1px;
 }
 .header-address {
   font-style: normal;
@@ -149,9 +165,11 @@ header {
   letter-spacing: 0.02em;
   padding-top: 24px;
   padding-bottom: 24px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contact-link:hover,
-.contact-link:focus {
+.contact-link:focus,
+.contact-link:active {
   color: #404bbf;
 }
 
@@ -159,8 +177,16 @@ header {
 
 /*============= TOP STYLES =============*/
 .section-top {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 188px 0;
-  background-color: #2e2f42;
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/people-office.jpg);
+  background-size: cover;
 }
 .top-title {
   max-width: 496px;
@@ -188,10 +214,12 @@ header {
   background-color: #4d5ae5;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
   border: none;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .order-button:hover,
-.order-button:focus {
+.order-button:focus,
+.order-button:active {
   background-color: #404bbf;
 }
 /*============= /TOP STYLES =============*/
@@ -222,6 +250,19 @@ header {
 .adv-item:last-child {
   margin-right: 0;
 }
+
+.adv-item-icon-wrapper {
+  display: flex;
+  border: 1px solid #8e8f99;
+  border-radius: 4px;
+  width: 264px;
+  height: 112px;
+  background-color: #f4f4fd;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
 .adv-descr {
   font-size: 16px;
   line-height: 1.5;
@@ -241,7 +282,7 @@ header {
 
 .team-item {
   margin-right: 24px;
-  width: calc((100% -72px) / 4);
+  width: calc((100% - 72px) / 4);
   border-radius: 0 0 4px 4px;
   background-color: #ffffff;
 }
@@ -250,7 +291,7 @@ header {
 }
 
 .team-descr {
-  padding: 32px 0;
+  padding: 32px 16px;
 }
 .team-title {
   margin-bottom: 72px;
@@ -276,6 +317,31 @@ header {
   letter-spacing: 0.02em;
   text-align: center;
   color: #434455;
+  margin-bottom: 8px;
+}
+
+.team-icon-list {
+  display: flex;
+  width: 100%;
+  column-gap: 24px;
+}
+
+.team-icon-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #4d5ae5;
+  fill: #f4f4fd;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-icon-link:hover,
+.team-icon-link:focus,
+.team-icon-link:active {
+  background-color: #404bbf;
 }
 
 /*============= /TEAM STYLES =============*/
@@ -298,8 +364,29 @@ header {
   row-gap: 48px;
 }
 
-.prof-item {
+.portf-item {
+  position: relative;
   width: 360px;
+  overflow: hidden;
+}
+
+.portfolio-overlay {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 40px 32px 164px 32px;
+  width: 360px;
+  height: 300px;
+  color: #f4f4fd;
+  background-color: #4d5ae5;
+  /* overflow: auto; */
+  transform: translateY(141%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portf-item:hover .portfolio-overlay {
+  transform: translateY(0%);
 }
 .portf-underline {
   padding: 32px 16px;
@@ -322,16 +409,21 @@ header {
   letter-spacing: 0.02em;
   color: #434455;
 }
+
 /*============= /PORTF STYLES =============*/
 
 /*============= FOOTER STYLES =============*/
+.footer-flex {
+  display: flex;
+}
 .page-footer {
   background-color: #2e2f42;
-  padding: 100px 0;
 }
 
-.footer-block {
-  width: 264px;
+.page-footer-container {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 120px;
 }
 
 .logo-link-footer {
@@ -354,5 +446,42 @@ header {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #f4f4fd;
+}
+
+.footer-social-media {
+  margin-top: 100px;
+  margin-bottom: 132px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+
+.text-social-media {
+  margin-bottom: 16px;
+}
+
+.footer-icon-list {
+  display: flex;
+}
+
+.footer-icon-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #4d5ae5;
+  fill: #f4f4fd;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-icon-link:hover,
+.footer-icon-link:focus,
+.footer-icon-link:active {
+  background-color: #31d0aa;
 }
 /*============= /FOOTER STYLES =============*/
