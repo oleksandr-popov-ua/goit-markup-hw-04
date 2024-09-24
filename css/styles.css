@@ -447,6 +447,8 @@ header {
 
 /*============= FOOTER STYLES =============*/
 .page-footer {
+  padding-top: 100px;
+  padding-bottom: 100px;
   background-color: #2e2f42;
 }
 
@@ -484,8 +486,6 @@ header {
 }
 
 .footer-social-media {
-  margin-top: 100px;
-  margin-bottom: 132px;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
